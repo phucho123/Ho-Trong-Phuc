@@ -12,4 +12,6 @@ The database is used is MongoDB with model of resource is "User" with fields(nam
 # How to run #
 
 1. First of all, run command **npm install** to install packages
-2. Second, rund command **npm run dev** to run the server
+2. Second, create .env file and create database in MongoDB cloud and create 2 env variable (DATABASE_PASSWORD,
+DATABASE_USERNAME)
+3. Finally, run command **npm run dev** to run the server
