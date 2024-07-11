@@ -1,5 +1,6 @@
 # Flow Diagram #
-![test-99 drawio](https://github.com/phucho123/node-test/assets/80267079/ebc848a6-6b09-4a4b-8e4c-f70e3ec61ee8)
+![test-99 drawio](https://github.com/phucho123/Ho-Trong-Phuc/assets/80267079/362d25a8-50eb-4fc0-8c32-678ee39af36b)
+
 
 # Flow of Execution #
 1. User Action: A user performs an action on the website that increases their score.
