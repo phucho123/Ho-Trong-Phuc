@@ -7,7 +7,7 @@ const CurrencySwapForm = () => {
   const [selectedCurrencyFrom, setSelectedCurrencyFrom] = useState('');
   const [selectedCurrencyTo, setSelectedCurrencyTo] = useState('');
   const [amountFrom, setAmountFrom] = useState('');
-  const [amountTo, setAmountTo] = useState('');
+  const [amountTo, setAmountTo] = useState(0);
   const [exchangeRate, setExchangeRate] = useState(1);
 
   useEffect(() => {
@@ -33,12 +33,16 @@ const CurrencySwapForm = () => {
     setSelectedCurrencyFrom(event.target.value);
     const rate = calculateExchangeRate(event.target.value, selectedCurrencyTo);
     setExchangeRate(rate);
+    const convertedAmount = amountFrom * rate;
+    setAmountTo(convertedAmount);
   };
 
   const handleCurrencyToChange = (event) => {
     setSelectedCurrencyTo(event.target.value);
     const rate = calculateExchangeRate(selectedCurrencyFrom, event.target.value);
     setExchangeRate(rate);
+    const convertedAmount = amountFrom * rate;
+    setAmountTo(convertedAmount);
   };
 
   const handleAmountFromChange = (event) => {
@@ -60,16 +64,10 @@ const CurrencySwapForm = () => {
     return 0;
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // Implement swap logic
-  // };
-
   return (
 
     <div className="app">
       <h1 className='header'>Currency Swap</h1>
-      {/* <form onSubmit={handleSubmit}> */}
       <div className='container'>
         <div className="form-group">
           <label htmlFor="currency-from">From:</label>
@@ -79,7 +77,7 @@ const CurrencySwapForm = () => {
               <option key={currency} value={currency}>{currency}</option>
             ))}
           </select>
-          <input type="number" value={amountFrom} onChange={handleAmountFromChange} />
+          <input type="number" value={amountFrom} onChange={handleAmountFromChange} placeholder='0' />
         </div>
         <div className="form-group">
           <label htmlFor="currency-to">To:</label>
@@ -89,10 +87,9 @@ const CurrencySwapForm = () => {
               <option key={currency} value={currency}>{currency}</option>
             ))}
           </select>
-          <input type="number" value={amountTo} onChange={handleAmountToChange} />
+          <input type="number" value={amountTo} onChange={handleAmountToChange} readOnly />
         </div>
-        {/* <button type="submit">Swap</button> */}
-        {/* </form> */}
+
       </div>
 
     </div>

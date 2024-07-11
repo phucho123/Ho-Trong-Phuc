@@ -27,6 +27,23 @@ export const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, funct
         res.status(500).json(err);
     }
 });
+export const getUserBy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const query = {};
+        if (req.query.name != undefined)
+            query.name = req.query.name;
+        if (req.query.age != undefined)
+            query.age = req.query.age;
+        const user = yield User.find(query);
+        if (user)
+            res.status(200).json(user);
+        else
+            res.status(400).json("User not exists");
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+});
 export const findUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield User.findById(req.params.id);

@@ -9,7 +9,10 @@ body {
   /* display: flex; */
   text-align: center;
   height: 100vh;
-  background: linear-gradient(to bottom, #009933 0%, #66ff33 100%);
+  /* background: linear-gradient(to bottom, #009933 0%, #66ff33 100%); */
+  background-image: url("https://img.freepik.com/free-vector/dollar-bill-pattern-background-wallpaper-money-vector-finance-illustration_53876-136819.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 code {
@@ -44,15 +47,18 @@ select{
   margin-left: 10px;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
+  background-color: #61a9b8;
+  color: white;
 }
 
 .header{
-  color:white;
+  color: black;
 }
 
 label{
-  color:white;
+  color:black;
   font-size: 24px;
+  font-weight: 500;
 }
 
 .form-group{

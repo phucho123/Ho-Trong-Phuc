@@ -19,6 +19,23 @@ export const getAllUsers = async (req: any, res: any) => {
     }
 }
 
+export const getUserBy = async (req: any, res: any) => {
+
+    try {
+        const query: {
+            name?: string,
+            age?: string
+        } = {};
+        if (req.query.name != undefined) query.name = req.query.name;
+        if (req.query.age != undefined) query.age = req.query.age;
+        const user = await User.find(query);
+        if (user) res.status(200).json(user);
+        else res.status(400).json("User not exists")
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
+
 export const findUserById = async (req: any, res: any) => {
     try {
         const user = await User.findById(req.params.id);
